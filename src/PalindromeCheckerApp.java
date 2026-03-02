@@ -1,27 +1,20 @@
 
 public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point for UC2.
-     *
-     * @param args Command-line arguments
-     */
     public static void main(String[] args) {
 
         String input = "madam";
-        boolean isPalindrome = true;
+        String reversed = "";
 
-        int inputLength = input.length();
-
-        // Loop only till half of the string length
-        for (int i = 0; i < inputLength / 2; i++) {
-            if (input.charAt(i) != input.charAt(inputLength - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Iterate from the last character to the first.
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
 
-        System.out.println("Input text: " + input);
+        boolean isPalindrome = input.equals(reversed);
+
+        System.out.println("Original text: " + input);
+        System.out.println("Reversed text: " + reversed);
         System.out.println("Is it a Palindrome? : " + isPalindrome);
     }
 }
